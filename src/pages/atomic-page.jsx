@@ -8,6 +8,7 @@ import { Paragraph, H2, H4 } from '../atoms/text'
 import { Container } from '../atoms/container'
 import { EmailSignup } from '../molecules/email-signup'
 import { SignupSection } from '../organisms/signup-section'
+import { MyComponent } from '../organisms/test'
 
 const AtomicPageSection = styled.main`
   margin-top: 5%;
@@ -91,6 +92,16 @@ export function AtomicPage(props) {
             headline="Don't miss out on this Product!"
             cta_copy="This thing is so great and you really need it. Provide your email and we will let you know as soon at it's available."
           />
+        </Container>
+      </AtomicPageSection>
+      <AtomicPageSection>
+        <Container>
+          <Box>
+            <H2>Organisms</H2>
+            <H4>Signup Section</H4>
+          </Box>
+
+          <MyComponent address={'90025'} />
         </Container>
       </AtomicPageSection>
     </main>
