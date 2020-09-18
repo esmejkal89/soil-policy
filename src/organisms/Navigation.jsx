@@ -62,7 +62,7 @@ export function Navigation(props) {
               <Link to="/screening-kits">
                 <H6>Screening Kits</H6>
               </Link>
-              <Link to="/take-action">
+              <Link to="/message-representatives">
                 <H6 className="link">Take Action</H6>
               </Link>
             </Links>

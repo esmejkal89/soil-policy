@@ -4,14 +4,14 @@ import { WideContainer } from '../atoms/Container'
 import { SmallHero } from '../organisms/Hero'
 import { EducationSection } from '../organisms/EducationSection'
 
-export function Message() {
+export function ScreeningKits() {
   return (
     <main className="home-page">
       <WideContainer>
         <SmallHero
-          title="Email your representatives"
-          subTitle="Based on your location, there are representatives in your area that could benefit from learning more about the importance of our nations soils. Use the template below to send your message."
-          button="Customize your message"
+          title="Film Screening Kits"
+          subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget massa sem nulla ac est lorem. Leo sem sagittis pulvinar ."
+          button="View the screening kits"
         />
         PAGE CONTENT
         <EducationSection />
@@ -20,4 +20,4 @@ export function Message() {
   )
 }
 
-export default Message
+export default ScreeningKits

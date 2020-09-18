@@ -8,6 +8,12 @@ import { WideContainer, Container } from '../atoms/Container'
 
 const SmallWrapper = styled(Box)`
   background-color: white;
+  margin-top: 5%;
+  margin-bottom: 5%;
+
+  H1 {
+    margin-bottom: 1rem;
+  }
 `
 const LargeWrapper = styled.main`
   margin-top: 5%;
@@ -50,13 +56,9 @@ export function SmallHero(props) {
     <WideContainer>
       <Container>
         <SmallWrapper>
-          <H1>Email your representatives.</H1>
-          <HomepageParagraph>
-            Based on your location, there are representatives in your area that
-            could benefit from learning more about the importance of our nations
-            soils. Use the template below to send your message.
-          </HomepageParagraph>
-          <Button title="Customize your message" className="button" />
+          <H1>{props.title}</H1>
+          <HomepageParagraph>{props.subTitle}</HomepageParagraph>
+          <Button title={props.button} className="button" />
         </SmallWrapper>
       </Container>
     </WideContainer>

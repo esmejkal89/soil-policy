@@ -5,7 +5,7 @@ import InputBase from '@material-ui/core/InputBase'
 import { Box } from '@rebass/emotion'
 
 import { Theme } from '../styles/settings'
-import { H5 } from './Text'
+import { H6 } from './Text'
 
 const BasicTextField = withStyles({
   root: {
@@ -24,7 +24,7 @@ const CustomTextField = styled(Box)`
   position: relative;
 `
 
-const Title = styled(H5)`
+const Title = styled(H6)`
   text-transform: uppercase;
   position: absolute;
   top: -2.5rem;
