@@ -283,10 +283,10 @@ We're going to create a `Button` atom that has custom styles using CSS-in-JS.
   const BaseButton = styled.button`
     padding: 0.6rem 2rem;
     font-size: 1.2rem;
-    background-color: ${props => props.theme.colors.brandPrimary};
-    border-color: ${props => props.theme.colors.brandPrimary};
+    background-color: ${(props) => props.theme.colors.brandPrimary};
+    border-color: ${(props) => props.theme.colors.brandPrimary};
     border-radius: 0.25rem;
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     cursor: pointer;
@@ -341,10 +341,10 @@ export function Button(props) {
   const BaseButton = styled.button`
     padding: 0.6rem 2rem;
     font-size: 1.2rem;
-    background-color: ${props => props.theme.colors.brandPrimary};
-    border-color: ${props => props.theme.colors.brandPrimary};
+    background-color: ${(props) => props.theme.colors.brandPrimary};
+    border-color: ${(props) => props.theme.colors.brandPrimary};
     border-radius: 0.25rem;
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     cursor: pointer;
@@ -461,7 +461,7 @@ You can now use `Button` and `EmailSignup` directly on any new `page` you create
   import { EmailSignup } from '../molecules/email-signup'
 
   const SignUpContainer = styled.div`
-    background: ${props => props.theme.colors.darkGray};
+    background: ${(props) => props.theme.colors.darkGray};
     padding: 7% 0;
   `
 
@@ -470,12 +470,12 @@ You can now use `Button` and `EmailSignup` directly on any new `page` you create
       <SignUpContainer>
         <Container>
           <Flex flexWrap="wrap">
-            <Box width={[1, 1, 1/2, 3 / 5]} p={3}>
+            <Box width={[1, 1, 1 / 2, 3 / 5]} p={3}>
               <H2 whiteText>{props.headline}</H2>
               <Paragraph whiteText>{props.cta_copy}</Paragraph>
             </Box>
 
-            <Box width={[1, 1, 1/2, 2 / 5]} p={3}>
+            <Box width={[1, 1, 1 / 2, 2 / 5]} p={3}>
               <EmailSignup
                 placeholder={props.placeholder}
                 title={props.title}

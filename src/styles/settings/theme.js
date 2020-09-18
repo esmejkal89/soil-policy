@@ -6,15 +6,28 @@ const Xl = '1200px'
 const Xxl = '1540px'
 
 export const Theme = {
-  brandFont: 'PT Sans',
   breakpoints: [Sm, Md, Lg, Xl, Xxl],
   colors: {
-    brandPrimary: '#e22d60',
-    brandSecondary: '#2dbbe2',
-    darkGray: '#3a3c48',
-    black: '#212529',
+    brandPrimary: '#6BD6AF',
+    brandSecondary: '#D9EEE6',
+    darkGray: '#2D3331',
+    black: '#010A19',
     white: '#FFFFFF',
   },
+  fonts: {
+    header: 'clarendon-text-pro, serif',
+    brandFont: 'henderson-sans-basic, sans-serif',
+  },
+  weight: {
+    regular: '400',
+    semiBold: '600',
+    bold: '700',
+  },
+  letterSpacing: {
+    regular: '0',
+    semiBold: '4px',
+  },
+  transition: '0.2s ease-in-out',
 }
 
 const breakpoints = [

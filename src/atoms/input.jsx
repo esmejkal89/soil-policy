@@ -1,33 +1,47 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { withStyles } from '@material-ui/core/styles'
+import InputBase from '@material-ui/core/InputBase'
+import { Box } from '@rebass/emotion'
 
-const BaseInput = styled.input`
-  height: calc(1.5em + 1rem + 2px);
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  border-radius: 0.3rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  width: 100%;
+import { Theme } from '../styles/settings'
+import { H5 } from './Text'
 
-  &.input--email {
-    height: calc(1.8em + 1rem + 2px);
-    border-right: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
+const BasicTextField = withStyles({
+  root: {
+    background: Theme.colors.white,
+    height: '3.5rem',
+    padding: '0 2rem',
+    fontFamily: Theme.fonts.brandFont,
+    width: '100%',
+    fontSize: '1rem',
+    borderBottom: '4px solid',
+    borderBottomColor: Theme.colors.brandPrimary,
+  },
+})(InputBase)
+
+const CustomTextField = styled(Box)`
+  position: relative;
 `
 
-export function Input(props) {
+const Title = styled(H5)`
+  text-transform: uppercase;
+  position: absolute;
+  top: -2.5rem;
+  color: ${(props) => props.theme.colors.white};
+  font-weight: ${(props) => props.theme.weight.semiBold};
+  letter-spacing: ${(props) => props.theme.letterSpacing.semiBold};
+`
+
+export function FormField(props) {
   return (
-    <BaseInput
-      type="text"
-      placeholder={props.placeholder}
-      className={props.email ? 'input--email' : ''}
-    />
+    <CustomTextField>
+      <Title>{props.label}</Title>
+      <BasicTextField
+        id="custom-css-standard-TextField"
+        placeholder={props.placeholder || props.label}
+        label="Custom CSS"
+      />
+    </CustomTextField>
   )
 }
