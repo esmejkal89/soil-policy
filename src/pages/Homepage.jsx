@@ -16,3 +16,5 @@ export function Homepage() {
     </main>
   )
 }
+
+export default Homepage

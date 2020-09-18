@@ -16,3 +16,5 @@ export function Message() {
     </main>
   )
 }
+
+export default Message
