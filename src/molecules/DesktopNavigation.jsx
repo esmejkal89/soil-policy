@@ -33,6 +33,7 @@ const Logo = styled(Box)`
   H6.small {
     margin-left: 2rem;
     font-size: 0.75rem;
+    font-weight: ${(props) => props.theme.weight.bold};
     color: ${(props) => props.theme.colors.white};
   }
 `
