@@ -94,11 +94,6 @@ export function LinkedImages(props) {
     setState({ hoverScreening: false, hoverSoil: false })
   }
 
-  // handleClick() {
-  //   // do something react js meaningful, more useful Promises, conditions if/else, whatever, and then
-  //   window.location.assign('http://twitteinfo.com');
-  // }
-
   return (
     <Container>
       <ImageRow>
@@ -175,71 +170,69 @@ export function LinkedImages(props) {
             </Animation>
           </Box>
           <Box width={1} px={3}>
-            <Link to="/screening-kits">
-              <Animation
-                initial="hidden"
-                animate="visible"
-                variants={motionVariants}
-                transition={{ ease: 'easeInOut', duration: 0.6, delay: 0.2 }}
+            <Animation
+              initial="hidden"
+              animate="visible"
+              variants={motionVariants}
+              transition={{ ease: 'easeInOut', duration: 0.6, delay: 0.2 }}
+            >
+              <ImageBox
+                onClick={() => history.push('/screening-kits')}
+                onMouseEnter={showHoverScreening}
+                onMouseLeave={removeHover}
               >
-                <ImageBox
-                  onClick={() => history.push('/screening-kits')}
-                  onMouseEnter={showHoverScreening}
-                  onMouseLeave={removeHover}
-                >
-                  <Image
-                    background={ScreeningKits}
-                    style={
-                      state.hoverScreening
-                        ? {
-                            boxShadow:
-                              'inset 0px -200px 300px -200px rgba(107, 214, 175, 1)',
-                          }
-                        : null
-                    }
-                  />
-                  <Description>
-                    <Animation
-                      initial="hidden"
-                      animate="visible"
-                      variants={motionVariants}
-                      transition={{
-                        ease: 'easeInOut',
-                        duration: 0.6,
-                        delay: 0.2,
-                      }}
-                    >
-                      <H6
-                        style={
-                          state.hoverScreening
-                            ? {
-                                color: Theme.colors.brandPrimaryLighten,
-                              }
-                            : null
+                <Image
+                  background={ScreeningKits}
+                  style={
+                    state.hoverScreening
+                      ? {
+                          boxShadow:
+                            'inset 0px -200px 300px -200px rgba(107, 214, 175, 1)',
                         }
-                      >
-                        Film Screening Kits
-                      </H6>
-                    </Animation>
-                    <Animation
-                      initial="hidden"
-                      animate="visible"
-                      variants={motionVariants}
-                      transition={{
-                        ease: 'easeInOut',
-                        duration: 0.6,
-                        delay: 0.4,
-                      }}
+                      : null
+                  }
+                />
+                <Description>
+                  <Animation
+                    initial="hidden"
+                    animate="visible"
+                    variants={motionVariants}
+                    transition={{
+                      ease: 'easeInOut',
+                      duration: 0.6,
+                      delay: 0.2,
+                    }}
+                  >
+                    <H6
+                      style={
+                        state.hoverScreening
+                          ? {
+                              color: Theme.colors.brandPrimaryLighten,
+                            }
+                          : null
+                      }
                     >
-                      <Paragraph>
-                        Find out more about healthy soils policy and connect
-                        with other grass root advocates.
-                      </Paragraph>
-                    </Animation>
-                  </Description>
-                </ImageBox>
-              </Animation>
-            </Link>
+                      Film Screening Kits
+                    </H6>
+                  </Animation>
+                  <Animation
+                    initial="hidden"
+                    animate="visible"
+                    variants={motionVariants}
+                    transition={{
+                      ease: 'easeInOut',
+                      duration: 0.6,
+                      delay: 0.4,
+                    }}
+                  >
+                    <Paragraph>
+                      Find out more about healthy soils policy and connect with
+                      other grass root advocates.
+                    </Paragraph>
+                  </Animation>
+                </Description>
+              </ImageBox>
+            </Animation>
           </Box>
         </Flex>
       </ImageRow>

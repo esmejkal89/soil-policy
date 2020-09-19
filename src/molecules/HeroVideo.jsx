@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { Box } from '@rebass/emotion'
 import { Play } from 'react-feather'
 
+import { Theme } from '../styles/settings'
 import VideoBackground from '../assets/hero__video.jpg'
 import Animation from '../atoms/Animation'
 import { H5 } from '../atoms/Text'
@@ -19,12 +20,14 @@ const VideoSection = styled(Box)`
   top: 0;
   height: 100%;
   z-index: 2;
+  cursor: pointer;
 `
 
 const RadialShadow = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1;
 
   H5 {
     margin-bottom: 1rem;
@@ -42,14 +45,9 @@ const PlayButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: ${(props) => props.theme.transition};
+  transition: ${(props) => props.theme.transitionSlow};
   cursor: pointer;
-  z-index: 1;
-
-  &:hover {
-    background: ${(props) => props.theme.colors.brandPrimary};
-    box-shadow: 0px 0px 44px 36px rgba(0, 0, 0, 0.15);
-  }
+  z-index: -1;
 
   svg {
     margin-left: 2px;
@@ -58,7 +56,11 @@ const PlayButton = styled.div`
   }
 `
 
-export function HeroVideo(props) {
+export function HeroVideo() {
+  const [state, setState] = useState({
+    hover: false,
+  })
+
   const motionVariants = {
     hidden: {
       opacity: 0,
@@ -70,8 +72,25 @@ export function HeroVideo(props) {
     },
   }
 
+  const showHover = () => {
+    setState({ hover: true })
+  }
+
+  const removeHover = () => {
+    setState({ hover: false, hoverSoil: false })
+  }
+
   return (
-    <VideoSection>
+    <VideoSection
+      onClick={() =>
+        window.open(
+          'https://nerdsforearth.com/state-healthy-soils-policy/',
+          '_blank',
+        )
+      }
+      onMouseEnter={showHover}
+      onMouseLeave={removeHover}
+    >
       <RadialShadow>
         <Animation
           initial="hidden"
@@ -79,6 +98,7 @@ export function HeroVideo(props) {
           variants={motionVariants}
           transition={{ ease: 'easeInOut', duration: 0.6, delay: 0.8 }}
         >
+          {/* TODO: Fix this z indexing on background hover */}
           <H5>The Initiative</H5>
         </Animation>
         <Animation
@@ -87,7 +107,17 @@ export function HeroVideo(props) {
           variants={motionVariants}
           transition={{ ease: 'easeInOut', duration: 0.6, delay: 1 }}
         >
-          <PlayButton>
+          <PlayButton
+            style={
+              state.hover
+                ? {
+                    boxShadow: '0px 0px 61px 208px rgba(0, 0, 0, 0.15)',
+                    background: Theme.colors.brandPrimary,
+                    zIndex: 0,
+                  }
+                : null
+            }
+          >
             <Play />
           </PlayButton>
         </Animation>

@@ -1,6 +1,6 @@
 const Xs = '500px'
 const Sm = '740px'
-const Md = '900px'
+const Md = '960px'
 const Lg = '1080px'
 const Xl = '1200px'
 const Xxl = '1540px'
@@ -13,6 +13,7 @@ export const Theme = {
     brandPrimaryLighten: '#96E0C6',
     brandSecondary: '#D9EEE6',
     lightGrey: '#F2F3F1',
+    grey: '#9BB1A9',
     darkGrey: '#2D3331',
     black: '#010A19',
     white: '#FFFFFF',
@@ -31,6 +32,7 @@ export const Theme = {
     semiBold: '4px',
   },
   transition: '0.2s ease-in-out',
+  transitionSlow: '0.4s ease-in-out',
 }
 
 const breakpoints = [
