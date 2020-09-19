@@ -9,8 +9,11 @@ export const Theme = {
   breakpoints: [Sm, Md, Lg, Xl, Xxl],
   colors: {
     brandPrimary: '#6BD6AF',
+    brandPrimaryDarken: '#4BCA9A',
+    brandPrimaryLighten: '#96E0C6',
     brandSecondary: '#D9EEE6',
-    darkGray: '#2D3331',
+    lightGrey: '#F2F3F1',
+    darkGrey: '#2D3331',
     black: '#010A19',
     white: '#FFFFFF',
   },

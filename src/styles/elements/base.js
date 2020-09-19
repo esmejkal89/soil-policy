@@ -4,6 +4,11 @@ import { darken } from 'polished'
 import { Theme } from '../settings'
 
 export const Base = css`
+  html {
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
   body {
     font-family: ${Theme.fonts.brandFont};
     font-size: 1rem;
@@ -12,6 +17,10 @@ export const Base = css`
     color: ${Theme.colors.black};
     text-align: left;
     transition: ${Theme.transition};
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1,
@@ -46,5 +55,9 @@ export const Base = css`
     &:focus {
       color: ${(props) => darken(0.1, props.Theme.colors.brandSecondary)};
     }
+  }
+  ::selection {
+    color: ${Theme.colors.white};
+    background: ${Theme.colors.brandPrimary};
   }
 `

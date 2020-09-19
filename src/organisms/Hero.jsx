@@ -5,7 +5,8 @@ import { Play } from 'react-feather'
 
 import VideoBackground from '../assets/hero__video.jpg'
 import HeroImage from '../assets/hero__clovers.jpg'
-import { Button } from '../atoms/Button'
+import Animation from '../atoms/Animation'
+import { AnchorButton } from '../atoms/Button'
 import { H1, H5, Paragraph } from '../atoms/Text'
 import { WideContainer, Container } from '../atoms/Container'
 
@@ -46,8 +47,8 @@ const TextSection = styled(Box)`
   margin: auto;
   padding-left: 4rem;
   padding-right: 4rem;
-  padding-top: 5%;
-  padding-bottom: 6%;
+  padding-top: 12%;
+  padding-bottom: 8%;
   z-index: 1;
 `
 
@@ -72,6 +73,7 @@ const RadialShadow = styled.div`
 
   H5 {
     margin-bottom: 1rem;
+    font-weight: ${(props) => props.theme.weight.bold};
     color: ${(props) => props.theme.colors.white};
     z-index: 2;
   }
@@ -102,27 +104,81 @@ const PlayButton = styled.div`
 `
 
 export function LargeHero(props) {
+  const motionVariants = {
+    hidden: {
+      opacity: 0,
+      y: '-20px',
+    },
+    visible: {
+      opacity: 1,
+      y: '0px',
+    },
+  }
+
   return (
     <WideContainer>
       <LargeWrapper>
+        {/* TODO: Make entire column trigger video, and hover animation for button */}
         <TextSection>
-          <H1>A nation that builds its soil builds its future.</H1>
-          <HomepageParagraph>
-            Email your government representatives and encourage them to learn
-            about the importance of improving soil health through regenerative
-            agriculture!
-          </HomepageParagraph>
-          <Button title="Take Action" className="button" />
+          <Animation
+            initial="hidden"
+            animate="visible"
+            variants={motionVariants}
+            transition={{ ease: 'easeInOut', duration: 0.6, delay: 0 }}
+          >
+            <H1>A nation that builds its soil builds its future.</H1>
+          </Animation>
+          <Animation
+            initial="hidden"
+            animate="visible"
+            variants={motionVariants}
+            transition={{ ease: 'easeInOut', duration: 0.6, delay: 0.2 }}
+          >
+            <HomepageParagraph>
+              Email your government representatives and encourage them to learn
+              about the importance of improving soil health through regenerative
+              agriculture!
+            </HomepageParagraph>
+          </Animation>
+          <Animation
+            initial="hidden"
+            animate="visible"
+            variants={motionVariants}
+            transition={{ ease: 'easeInOut', duration: 0.6, delay: 0.4 }}
+          >
+            <AnchorButton
+              title="Take Action"
+              className="button"
+              url="#take-action"
+              offset={40}
+            />
+          </Animation>
         </TextSection>
         <VideoSection>
           <RadialShadow>
-            <H5>THE INITIATIVE</H5>
-            <PlayButton>
-              <Play />
-            </PlayButton>
+            <Animation
+              initial="hidden"
+              animate="visible"
+              variants={motionVariants}
+              transition={{ ease: 'easeInOut', duration: 0.6, delay: 0.8 }}
+            >
+              <H5>THE INITIATIVE</H5>
+            </Animation>
+            <Animation
+              initial="hidden"
+              animate="visible"
+              variants={motionVariants}
+              transition={{ ease: 'easeInOut', duration: 0.6, delay: 1 }}
+            >
+              <PlayButton>
+                <Play />
+              </PlayButton>
+            </Animation>
           </RadialShadow>
         </VideoSection>
       </LargeWrapper>
+
+      <section id="take-action"></section>
     </WideContainer>
   )
 }
@@ -134,7 +190,12 @@ export function SmallHero(props) {
         <SmallWrapper>
           <H1>{props.title}</H1>
           <HomepageParagraph>{props.subTitle}</HomepageParagraph>
-          <Button title={props.button} className="button" />
+          <AnchorButton
+            title={props.button}
+            className="button"
+            url="#continue"
+            offset={40}
+          />
         </SmallWrapper>
       </Container>
     </WideContainer>

@@ -10,13 +10,19 @@ import { H6 } from './Text'
 const BasicTextField = withStyles({
   root: {
     background: Theme.colors.white,
-    height: '3.5rem',
+    height: '3rem',
     padding: '0 2rem',
     fontFamily: Theme.fonts.brandFont,
     width: '100%',
     fontSize: '1rem',
-    borderBottom: '4px solid',
+    transition: Theme.transition,
+    borderBottom: '6px solid',
     borderBottomColor: Theme.colors.brandPrimary,
+
+    '&:hover': {
+      background: Theme.colors.lightGrey,
+      borderBottomColor: '#4BCA9A',
+    },
   },
 })(InputBase)
 

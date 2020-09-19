@@ -1,74 +1,57 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import styled from '@emotion/styled'
-import { Box, Flex } from '@rebass/emotion'
+import PropTypes from 'prop-types'
+import {
+  AppBar,
+  makeStyles,
+  useScrollTrigger,
+  Slide,
+  Hidden,
+} from '@material-ui/core'
 
-import { Container } from '../atoms/Container'
-import { H3, H6 } from '../atoms/Text'
+import { DesktopNavigation } from '../molecules/DesktopNavigation'
+import { MobileNavigation } from '../molecules/MobileNavigation'
 
-const NavigationContainer = styled(Flex)`
-  background: ${(props) => props.theme.colors.darkGray};
-  padding: 0.5rem 0;
-  justify-content: space-between;
-  align-items: center;
+function HideOnScroll(props) {
+  const { children, window } = props
+  const trigger = useScrollTrigger({ target: window ? window() : undefined })
 
-  H6 {
-    color: ${(props) => props.theme.colors.brandPrimary};
-    margin: 1rem 0;
-  }
-`
-
-const Logo = styled(Box)`
-  display: flex;
-  align-items: center;
-  H3 {
-    color: ${(props) => props.theme.colors.white};
-  }
-  H6.small {
-    margin-left: 2rem;
-    font-size: 0.75rem;
-    color: ${(props) => props.theme.colors.white};
-  }
-`
-
-const Links = styled(Box)`
-  display: flex;
-  align-items: center;
-  H6 {
-    margin-left: 2rem;
-    color: ${(props) => props.theme.colors.white};
-  }
-  H6.link {
-    color: ${(props) => props.theme.colors.brandPrimary};
-    margin: 1rem 0 1rem 2rem;
-  }
-`
-
-export function Navigation(props) {
   return (
-    <>
-      <NavigationContainer>
-        <Container>
-          <Flex justifyContent="space-between" alignItems="center">
-            <Logo>
-              <Link to="/">
-                <H3>Logo</H3>
-              </Link>
-
-              <H6 className="small">Soil policy action</H6>
-            </Logo>
-
-            <Links>
-              <Link to="/screening-kits">
-                <H6>Screening Kits</H6>
-              </Link>
-              <Link to="/message-representatives">
-                <H6 className="link">Take Action</H6>
-              </Link>
-            </Links>
-          </Flex>
-        </Container>
-      </NavigationContainer>
-    </>
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
   )
 }
+
+HideOnScroll.propTypes = {
+  children: PropTypes.element.isRequired,
+  window: PropTypes.func,
+}
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: '#F3F6F9',
+  },
+}))
+
+export function Navigation(props) {
+  const classes = useStyles()
+  return (
+    <HideOnScroll {...props}>
+      <AppBar
+        position="fixed"
+        className={props.color ? classes.appBar : null}
+        color="inherit"
+        elevation={0}
+      >
+        <Hidden smDown>
+          <DesktopNavigation {...props} />
+        </Hidden>
+        <Hidden mdUp>
+          <MobileNavigation {...props} />
+        </Hidden>
+      </AppBar>
+    </HideOnScroll>
+  )
+}
+
+export default Navigation

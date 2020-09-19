@@ -461,7 +461,7 @@ You can now use `Button` and `EmailSignup` directly on any new `page` you create
   import { EmailSignup } from '../molecules/email-signup'
 
   const SignUpContainer = styled.div`
-    background: ${(props) => props.theme.colors.darkGray};
+    background: ${(props) => props.theme.colors.darkGrey};
     padding: 7% 0;
   `
 
