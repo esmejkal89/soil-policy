@@ -8,7 +8,7 @@ import { H3, H6 } from '../atoms/Text'
 
 const NavigationContainer = styled(Flex)`
   background: ${(props) => props.theme.colors.darkGray};
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   justify-content: space-between;
   align-items: center;
 
