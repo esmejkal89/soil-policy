@@ -1,4 +1,4 @@
-# Style Guidelines for CSS-in-JS
+# Soil Policy Action React Frontend
 
 ## What is this?
 
