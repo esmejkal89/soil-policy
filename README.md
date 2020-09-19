@@ -2,11 +2,11 @@
 
 ## What is this?
 
-This is an example project for you to reference when setting up a new web app using React and/or CSS-in-JS. Alternatively, you can follow the [installation](#installation) steps below on your own project.
+A react web app to email your government representatives and encourage them to learn about the importance of improving soil health through regenerative agriculture.
 
 ## Why do I need this?
 
-This is to help engineers and designers setup style related tools, and follow a frontend convention for the project. This makes the project more maintainable in the future.
+This Reame is to help engineers and designers setup this project, and follow a frontend convention. This makes the project more maintainable in the future.
 
 ## Tech & Ideologies Used
 
@@ -23,7 +23,6 @@ This is to help engineers and designers setup style related tools, and follow a 
 To use this project as a starting point for your React web app, simply clone this repo and run:
 
 - `npm install`
-
 - `npm start`
 
 ## <a name="installation"></a>Installation
